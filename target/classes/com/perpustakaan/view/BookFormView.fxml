@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane fx:controller="com.perpustakaan.controller.BookFormController"
+          xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" hgap="15" vgap="10"
+          styleClass="form-pane" stylesheets="@styles.css">
+    <padding>
+        <Insets top="25" right="35" bottom="25" left="35"/>
+    </padding>
+
+    <columnConstraints>
+        <ColumnConstraints halignment="RIGHT" hgrow="NEVER" minWidth="10.0" prefWidth="100.0"/>
+        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="280.0"/>
+    </columnConstraints>
+
+    <Label fx:id="formTitleLabel" text="Form Data Buku" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" styleClass="form-title">
+        <GridPane.margin>
+            <Insets bottom="20.0"/>
+        </GridPane.margin>
+    </Label>
+
+    <Label text="ISBN:" GridPane.rowIndex="1" styleClass="form-label"/>
+    <TextField fx:id="isbnField" GridPane.rowIndex="1" GridPane.columnIndex="1" styleClass="form-textfield" promptText="Contoh: 978-602-xxxx-xx-x"/>
+
+    <Label text="Judul Buku:" GridPane.rowIndex="2" styleClass="form-label"/>
+    <TextField fx:id="titleField" GridPane.rowIndex="2" GridPane.columnIndex="1" styleClass="form-textfield" promptText="Masukkan judul buku"/>
+
+    <Label text="Pengarang:" GridPane.rowIndex="3" styleClass="form-label"/>
+    <TextField fx:id="authorField" GridPane.rowIndex="3" GridPane.columnIndex="1" styleClass="form-textfield" promptText="Masukkan nama pengarang"/>
+
+    <Label text="Kuantitas:" GridPane.rowIndex="4" styleClass="form-label"/>
+    <TextField fx:id="quantityField" GridPane.rowIndex="4" GridPane.columnIndex="1" styleClass="form-textfield" promptText="Jumlah stok (angka)"/>
+
+    <HBox spacing="10" alignment="CENTER_RIGHT" GridPane.rowIndex="5" GridPane.columnIndex="1">
+        <padding>
+            <Insets top="25.0"/>
+        </padding>
+        <Button fx:id="simpanButton" text="Simpan" onAction="#handleSimpanAction" styleClass="button-simpan" defaultButton="true"/>
+        <Button fx:id="batalButton" text="Batal" onAction="#handleBatalAction" styleClass="button-batal" cancelButton="true"/>
+    </HBox>
+    
+    </GridPane>

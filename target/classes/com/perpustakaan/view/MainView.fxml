@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+
+
+<BorderPane fx:controller="com.perpustakaan.controller.MainController"
+    xmlns:fx="http://javafx.com/fxml/1" prefHeight="600.0" prefWidth="800.0"
+    stylesheets="@styles.css">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu fx:id="fileMenu" text="File">
+                    <items>
+                        <MenuItem text="Keluar" onAction="#handleKeluarAction" />
+                    </items>
+                </Menu>
+                <Menu fx:id="manajemenMenu" text="Manajemen">
+                    <items>
+                        <MenuItem text="Data Buku" onAction="#handleBukuAction" />
+                        <MenuItem text="Data Anggota" onAction="#handleAnggotaAction" />
+                    </items>
+                </Menu>
+                <Menu fx:id="transaksiMenu" text="Transaksi">
+                    <items>
+                        <MenuItem fx:id="peminjamanMenuItem" text="Peminjaman Buku"
+                            onAction="#handlePeminjamanAction" />
+                        <MenuItem fx:id="pengembalianMenuItem" text="Pengembalian Buku"
+                            onAction="#handlePengembalianAction" />
+                    </items>
+                </Menu>
+                <Menu fx:id="laporanMenu" text="Laporan">
+                    <items>
+                        <MenuItem fx:id="laporanBukuDipinjamMenuItem" text="Buku Dipinjam"
+                            onAction="#handleLaporanBukuDipinjamAction" />
+                        <MenuItem fx:id="statistikBulananMenuItem" text="Statistik Bulanan"
+                            onAction="#handleStatistikBulananAction" />
+                    </items>
+                </Menu>
+                <Menu fx:id="akunSayaMenu" text="Akun Saya">
+                    <items>
+                        <MenuItem fx:id="riwayatPeminjamanMenuItem" text="Riwayat Peminjaman Saya"
+                            onAction="#handleRiwayatPeminjamanAction" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <VBox alignment="TOP_LEFT" spacing="20.0" styleClass="dashboard-pane">
+            <padding>
+                <Insets top="30.0" right="40.0" bottom="30.0" left="40.0" />
+            </padding>
+            <children>
+                <Label fx:id="welcomeLabel" styleClass="welcome-text-header"
+                    text="Memuat data pengguna..." />
+
+                <VBox fx:id="adminStatsPane" spacing="10.0" managed="false" visible="false">
+                    <children>
+                        <Label text="Ringkasan Sistem (Admin):" styleClass="dashboard-section-title" />
+                        <Label fx:id="totalBooksLabel" text="Total Buku: -" styleClass="form-data" />
+                        <Label fx:id="totalMembersLabel" text="Total Anggota: -"
+                            styleClass="form-data" />
+                        <Label fx:id="totalBorrowedBooksLabel" text="Buku Dipinjam: -"
+                            styleClass="form-data" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" bottom="20.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <VBox fx:id="memberInfoPane" spacing="10.0" managed="false" visible="false">
+                    <children>
+                        <Label text="Informasi Akun Anda (Member):"
+                            styleClass="dashboard-section-title" />
+                        <Label fx:id="memberIdLabel" text="ID Anggota: -" styleClass="form-data" />
+                        <Label fx:id="memberBorrowedCountLabel" text="Buku Dipinjam: -"
+                            styleClass="form-data" />
+                    </children>
+                    <VBox.margin>
+                        <Insets top="10.0" bottom="20.0" />
+                    </VBox.margin>
+                </VBox>
+
+                <Label text="Aksi Cepat:" styleClass="dashboard-section-title" />
+                <HBox fx:id="quickActionsPane" spacing="15.0">
+                    <Button fx:id="addBookShortcutButton" text="Tambah Buku"
+                        onAction="#handleBukuAction" styleClass="button-modern" managed="false"
+                        visible="false" />
+                    <Button fx:id="returnBookShortcutButton" text="Pengembalian"
+                        onAction="#handlePengembalianAction" styleClass="button-modern"
+                        managed="false" visible="false" />
+                    <Button fx:id="borrowBookShortcutButton" text="Pinjam Buku"
+                        onAction="#handlePeminjamanAction" styleClass="button-modern"
+                        managed="false" visible="false" />
+                    <Button fx:id="myBorrowsShortcutButton" text="Riwayat Saya"
+                        onAction="#handleRiwayatPeminjamanAction" styleClass="button-modern"
+                        managed="false" visible="false" />
+                </HBox>
+
+                <Label styleClass="welcome-text-subheader"
+                    text="Gunakan menu di atas untuk navigasi fitur lainnya.">
+                    <VBox.margin>
+                        <Insets top="30.0" />
+                    </VBox.margin>
+                </Label>
+            </children>
+        </VBox>
+    </center>
+</BorderPane>

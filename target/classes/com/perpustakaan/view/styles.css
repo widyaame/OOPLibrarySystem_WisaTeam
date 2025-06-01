@@ -1,0 +1,243 @@
+/* === Pengaturan Dasar & Root === */
+.root {
+    -fx-font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; /* Pilihan font modern */
+    -fx-background-color: #F4F6F8; /* Latar belakang utama yang bersih dan terang */
+    -fx-accent: #007AFF; /* Warna aksen (biru) untuk fokus, seleksi, dll. */
+}
+
+/* === MenuBar Styling (dari saran sebelumnya) === */
+.menu-bar {
+    -fx-background-color: #FFFFFF; 
+    -fx-padding: 8px 15px;      
+    -fx-border-width: 0 0 1px 0; 
+    -fx-border-color: #E0E0E0;   
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 10, 0, 0, 3); 
+}
+
+.menu .label { /* Teks pada Menu (File, Manajemen, dll.) */
+    -fx-text-fill: #333333; 
+    -fx-font-size: 13px;
+    -fx-font-weight: 500; /* Medium weight */
+}
+
+.menu:hover {
+    -fx-background-color: #E9ECEF; 
+}
+.menu:hover .label {
+    -fx-text-fill: #0056b3; 
+}
+
+.menu:showing { /* Menu yang sedang terbuka itemnya */
+    -fx-background-color: #DEE2E6;
+}
+
+.menu-item {
+    -fx-padding: 8px 15px; 
+}
+
+.menu-item .label {
+    -fx-text-fill: #333333; 
+    -fx-font-size: 13px;
+}
+
+.menu-item:focused { /* Efek hover/fokus pada MenuItem */
+    -fx-background-color: -fx-accent; 
+}
+
+.menu-item:focused .label {
+    -fx-text-fill: white; 
+}
+
+/* === Styling untuk Konten Tengah MainView (Pesan Selamat Datang) === */
+.welcome-text-header {
+    -fx-font-size: 28px;
+    -fx-font-weight: 600; 
+    -fx-text-fill: #2C3E50; 
+    -fx-padding: 10px 0;
+    -fx-effect: dropshadow( gaussian , rgba(0,0,0,0.1) , 10, 0.5 , 0 , 1 );
+}
+
+.welcome-text-subheader {
+    -fx-font-size: 16px;
+    -fx-text-fill: #566573; 
+    -fx-line-spacing: 5px; 
+}
+
+/* === Styling untuk Judul Halaman Umum (digunakan di BookManagementView, MemberManagementView, dll.) === */
+.page-title {
+    -fx-font-size: 22px; /* Ukuran konsisten untuk judul halaman fitur */
+    -fx-font-weight: bold;
+    -fx-text-fill: #2C3E50; 
+    -fx-padding: 0 0 15px 0; 
+}
+
+/* === Styling TableView (dari CSS Anda sebelumnya, sudah bagus) === */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #D0D3D4;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0.2, 0, 2); /* Sedikit penyesuaian bayangan */
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F1F3F5; /* Warna header yang sedikit lebih terang/flat */
+    -fx-border-color: #DEE2E6;
+    -fx-border-width: 0 0 1px 0; 
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #495057; /* Warna teks header yang lebih lembut */
+    -fx-font-weight: 600; /* Semi-bold */
+    -fx-padding: 10px 12px; /* Sedikit penyesuaian padding */
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-row-cell:odd {
+    -fx-background-color: #F8F9FA; 
+}
+.table-row-cell:even {
+    -fx-background-color: white;
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #E9ECEF; /* Efek hover pada baris */
+}
+
+.table-row-cell:selected {
+    -fx-background-color: -fx-accent; /* Menggunakan warna aksen dari .root */
+}
+
+.table-row-cell:selected .table-cell .text {
+    -fx-fill: white;
+    -fx-font-weight: 500; /* Medium weight untuk teks terpilih */
+}
+
+/* === Styling untuk TextField Filter (dari CSS Anda, sudah bagus) === */
+.text-field-filter {
+    -fx-font-size: 13px; /* Sedikit lebih kecil agar lebih ringkas */
+    -fx-background-radius: 20; 
+    -fx-border-radius: 20;
+    -fx-padding: 7px 15px; /* Sesuaikan padding */
+    -fx-prompt-text-fill: #ADB5BD;
+    -fx-border-color: #CED4DA;
+    /* -fx-focus-color: -fx-accent; (Ini lebih untuk tema internal, border saat fokus bisa diatur dengan :focused) */
+}
+.text-field-filter:focused {
+    -fx-border-color: -fx-accent;
+    -fx-effect: dropshadow(gaussian, derive(-fx-accent, 70%), 5, 0, 0, 0); /* Bayangan saat fokus */
+}
+
+
+/* === Styling untuk Tombol Aksi (dari CSS Anda, sudah bagus) === */
+/* Gaya dasar untuk semua tombol aksi di bar, agar konsisten */
+.action-button-bar .button {
+    -fx-min-width: 90px; /* Sedikit lebih kecil */
+    -fx-font-weight: 500; /* Medium */
+    -fx-background-radius: 5;
+    -fx-padding: 7px 14px; /* Sedikit penyesuaian padding */
+    -fx-text-fill: white; /* Default teks putih untuk tombol berwarna */
+    -fx-font-size: 13px;
+}
+.action-button-bar .button:hover {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Efek bayangan saat hover */
+}
+
+/* Warna spesifik per tombol (sudah baik) */
+.button-add { -fx-background-color: #2ECC71; }
+.button-add:hover { -fx-background-color: #28B463; }
+
+.button-edit { -fx-background-color: #F39C12; }
+.button-edit:hover { -fx-background-color: #D68910; }
+
+.button-delete { -fx-background-color: #E74C3C; }
+.button-delete:hover { -fx-background-color: #CB4335; }
+
+.button-refresh { -fx-background-color: #3498DB; }
+.button-refresh:hover { -fx-background-color: #2E86C1; }
+
+/* Tombol Simpan dan Batal untuk Form (dari saran sebelumnya) */
+.button-simpan {
+    -fx-background-color: #28A745; /* Hijau */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8px 15px;
+}
+.button-simpan:hover { -fx-background-color: #218838; }
+
+.button-batal {
+    -fx-background-color: #6C757D; /* Abu-abu */
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-background-radius: 5;
+    -fx-padding: 8px 15px;
+}
+.button-batal:hover { -fx-background-color: #5A6268; }
+
+
+/* === Styling untuk Form Input (dari saran sebelumnya) === */
+.form-pane { /* Untuk GridPane di BookFormView, MemberFormView, dll. */
+    -fx-background-color: #FFFFFF;
+    /* -fx-border-color: #B0BEC5; (Mungkin tidak perlu border jika sudah ada padding dan bayangan) */
+    /* -fx-border-width: 1px; */
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.08), 15, 0.3, 0, 0); /* Bayangan lebih lembut */
+}
+
+.form-title {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474F;
+}
+
+.form-label {
+    -fx-font-size: 13px; /* Sedikit lebih kecil */
+    -fx-text-fill: #495057; /* Warna lebih lembut */
+    -fx-padding: 0 5px 0 0; 
+}
+
+.form-label-bold { /* Gaya label yang sudah Anda buat, ini bagus */
+    -fx-font-size: 14px;
+    -fx-text-fill: #455A64;
+    -fx-font-weight: bold;
+    -fx-padding: 0 5px 0 0;
+}
+
+.form-data { /* Gaya data yang sudah Anda buat, ini bagus */
+    -fx-font-size: 14px;
+    -fx-text-fill: #2C3E50;
+    -fx-wrap-text: true; 
+}
+
+.form-textfield { /* Untuk TextField dan PasswordField di form */
+    -fx-font-size: 13px;
+    -fx-background-radius: 5;
+    -fx-border-radius: 5;
+    -fx-border-color: #CED4DA;
+    -fx-padding: 8px 10px;
+}
+
+.form-textfield:focused {
+    -fx-border-color: -fx-accent; /* Menggunakan warna aksen dari .root */
+    -fx-effect: dropshadow(gaussian, derive(-fx-accent, 70%), 4, 0, 0, 0); /* Bayangan fokus lebih halus */
+}
+
+.dashboard-pane {
+    /* -fx-background-color: white; */ /* Jika ingin latar belakang berbeda untuk area dashboard */
+    /* -fx-border-color: #E0E0E0; */
+    /* -fx-border-width: 1px; */
+    /* -fx-border-radius: 8px; */
+    /* -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.05), 10, 0.2, 0, 1); */
+    /* Biarkan transparan untuk menyatu dengan .root atau atur sesuai keinginan */
+}
+
+.dashboard-section-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #37474F; /* Warna yang sama dengan .form-title */
+    -fx-padding: 10px 0 5px 0;
+    -fx-border-width: 0 0 1px 0;
+    -fx-border-color: #E0E0E0;
+}
