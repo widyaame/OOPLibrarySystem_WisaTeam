@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.WelcomeController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <VBox spacing="5.0" BorderPane.alignment="CENTER_LEFT">
+         <children>
+            <Label fx:id="welcomeLabel" styleClass="page-title" text="Selamat Datang, Admin!" />
+            <Label styleClass="page-subtitle" text="Pilih salah satu menu cepat di bawah atau gunakan sidebar untuk memulai." />
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="30.0" />
+         </BorderPane.margin>
+      </VBox>
+   </top>
+   <center>
+      <HBox spacing="25.0">
+         <children>
+            <VBox fx:id="kelolaBukuCard" styleClass="action-card" HBox.hgrow="ALWAYS">
+               <children>
+                  <FontAwesomeIconView glyphName="BOOK" size="3em" styleClass="action-card-icon" />
+                  <Label styleClass="action-card-title" text="Kelola Buku" />
+                  <Label styleClass="action-card-desc" text="Tambah, ubah, atau hapus data buku di dalam katalog perpustakaan." wrapText="true" />
+               </children>
+            </VBox>
+            <VBox fx:id="kelolaAnggotaCard" styleClass="action-card" HBox.hgrow="ALWAYS">
+               <children>
+                  <FontAwesomeIconView glyphName="USERS" size="3em" styleClass="action-card-icon" />
+                  <Label styleClass="action-card-title" text="Kelola Anggota" />
+                  <Label styleClass="action-card-desc" text="Kelola data anggota, termasuk pendaftaran dan penghapusan anggota." wrapText="true" />
+               </children>
+            </VBox>
+           <VBox fx:id="pengembalianCard" styleClass="action-card" HBox.hgrow="ALWAYS">
+               <children>
+                  <FontAwesomeIconView glyphName="UNDO" size="3em" styleClass="action-card-icon" />
+                  <Label styleClass="action-card-title" text="Pengembalian Buku" />
+                  <Label styleClass="action-card-desc" text="Proses pengembalian buku dari anggota dan hitung denda jika ada." wrapText="true" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </center>
+</BorderPane>

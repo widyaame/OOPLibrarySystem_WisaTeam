@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>  <?import javafx.scene.layout.VBox?>
+
+<BorderPane styleClass="content-area" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.perpustakaan.controller.KelolaAnggotaController">
+   <padding>
+      <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+   </padding>
+   <top>
+      <Label styleClass="page-title" text="Kelola Data Anggota" />
+   </top>
+   <center>
+      <TableView fx:id="memberTableView">
+         <columns>
+            <TableColumn fx:id="memberIdColumn" prefWidth="150.0" text="ID Anggota (NIM)" />
+            <TableColumn fx:id="fullNameColumn" prefWidth="250.0" text="Nama Lengkap" />
+            <TableColumn fx:id="majorColumn" prefWidth="150.0" text="Jurusan" />
+            <TableColumn fx:id="emailColumn" prefWidth="200.0" text="Email" />
+         </columns>
+         <BorderPane.margin>
+            <Insets top="20.0" />
+         </BorderPane.margin>
+      </TableView>
+   </center>
+   <right>
+      <VBox styleClass="form-container" spacing="15.0">
+         <BorderPane.margin>
+            <Insets left="25.0" />
+         </BorderPane.margin>
+         <children>
+            <Label styleClass="form-title" text="Detail Anggota" />
+            <GridPane hgap="10.0" vgap="15.0">
+               <children>
+                  <Label text="ID (NIM)" />
+                  <TextField fx:id="memberIdField" styleClass="input-field" GridPane.columnIndex="1" />
+                  <Label text="PIN" GridPane.rowIndex="1" />
+                  <PasswordField fx:id="pinField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label text="Nama Lengkap" GridPane.rowIndex="2" />
+                  <TextField fx:id="fullNameField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label text="Jurusan" GridPane.rowIndex="3" />
+                  <TextField fx:id="majorField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label text="Email" GridPane.rowIndex="4" />
+                  <TextField fx:id="emailField" styleClass="input-field" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+               </children>
+            </GridPane>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Button fx:id="addButton" onAction="#handleAddButton" prefHeight="40.0" styleClass="add-button" text="Tambah">
+                     <graphic>
+                        <FontAwesomeIconView fill="white" glyphName="PLUS" />
+                     </graphic>
+                  </Button>
+                  <Button fx:id="updateButton" onAction="#handleUpdateButton" prefHeight="40.0" text="Simpan">
+                     <graphic>
+                        <FontAwesomeIconView fill="white" glyphName="SAVE" />
+                     </graphic>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="clearButton" onAction="#handleClearButton" styleClass="icon-button">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="ERASER" size="1.5em" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Bersihkan Form" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="deleteButton" onAction="#handleDeleteButton" styleClass="icon-button-delete">
+                     <graphic>
+                        <FontAwesomeIconView glyphName="TRASH" size="1.5em" />
+                     </graphic>
+                     <tooltip>
+                        <Tooltip text="Hapus Anggota" />
+                     </tooltip>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+</BorderPane>
